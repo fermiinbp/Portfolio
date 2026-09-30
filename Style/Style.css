@@ -199,7 +199,7 @@ a {
 
     position: relative;
     display: grid;
-    min-height: 85svh;
+    min-height: calc(100svh - 7rem);
     padding: 1.5rem var(--hero-margen) 0;
     overflow: hidden;
     isolation: isolate;
@@ -217,7 +217,6 @@ a {
 }
 
 .hero-nombre-fondo,
-.hero-foto,
 .hero-texto,
 .hero-nombre {
     grid-area: 1 / 1;
@@ -225,34 +224,24 @@ a {
 
 .hero-nombre-fondo {
     z-index: 1;
-    align-self: start;
+    align-self: center;
     justify-self: center;
     font-size: var(--hero-fuente-fondo);
     font-weight: 700;
     line-height: 0.85;
     letter-spacing: -0.04em;
     white-space: nowrap;
-    color: color-mix(in srgb, var(--color-texto) 10%, transparent);
+    color: color-mix(in srgb, var(--color-texto) 12%, transparent);
     user-select: none;
     pointer-events: none;
-}
-
-.hero-foto {
-    z-index: 2;
-    align-self: end;
-    justify-self: center;
-    width: auto;
-    height: min(70svh, 34rem);
-    object-fit: contain;
-    object-position: bottom;
 }
 
 .hero-texto {
     z-index: 3;
     align-self: start;
-    justify-self: start;
-    max-width: 14rem;
-    margin-top: calc(var(--hero-fuente-fondo) * 0.95);
+    justify-self: center;
+    max-width: 16rem;
+    text-align: center;
     font-size: clamp(0.95rem, 2.4vw, 1.25rem);
     font-weight: 500;
     line-height: 1.3;
@@ -263,7 +252,7 @@ a {
     display: block;
     width: 2.5rem;
     height: 3px;
-    margin-bottom: 0.75rem;
+    margin: 0 auto 0.75rem;
     border-radius: 999px;
     background: var(--gradiente);
 }
@@ -271,24 +260,21 @@ a {
 .hero-nombre {
     z-index: 3;
     align-self: end;
-    justify-self: start;
-    font-size: clamp(3.5rem, 17vw, 12rem);
+    justify-self: center;
+    text-align: center;
+    font-size: clamp(3rem, 15vw, 9rem);
     font-weight: 700;
     line-height: 0.9;
     letter-spacing: -0.03em;
 }
 
 /* Único momento animado de la página: la entrada del hero */
-.hero-foto {
+.hero-nombre {
     animation: entrada 0.9s ease-out both;
 }
 
-.hero-nombre {
-    animation: entrada 0.9s ease-out 0.15s both;
-}
-
 .hero-texto {
-    animation: entrada 0.9s ease-out 0.3s both;
+    animation: entrada 0.9s ease-out 0.15s both;
 }
 
 /* Secciones */
@@ -615,18 +601,8 @@ a {
         min-height: calc(100svh - 4.5rem);
     }
 
-    .hero-foto {
-        height: min(88svh, 48rem);
-    }
-
-    .hero-texto {
-        align-self: center;
-        margin-top: 0;
-        max-width: 16rem;
-    }
-
     .hero-nombre {
-        margin-bottom: 1rem;
+        font-size: clamp(4rem, 12vw, 11rem);
     }
 
     /* Secciones */
